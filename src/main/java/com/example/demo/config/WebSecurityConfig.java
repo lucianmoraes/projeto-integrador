@@ -54,6 +54,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
                 .antMatchers(HttpMethod.GET,"/api/v1/fresh-products/warehouse/*").hasAnyAuthority("Representante")
                 .antMatchers("/api/v1/fresh-products/due-date").hasAnyAuthority("Representante")
                 .antMatchers("/api/v1/fresh-products/due-date/list").hasAnyAuthority("Representante")
+                .antMatchers("/api/v1/fresh-products/due-date/informant").hasAnyAuthority("Representante")
                 .anyRequest().authenticated()
                 .and().csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)

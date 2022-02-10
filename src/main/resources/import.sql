@@ -9,10 +9,10 @@ Insert into produto (nome, descricao) values ('Sorvete', 'Sorvete napolitano');
 Insert into produto (nome, descricao) values ('Asas de Frango', 'Asas de frango ja temperadas');
 
 -- Inserção de vendedores
-Insert into vendedor (nome) values ('Julio');
-Insert into vendedor (nome) values ('Manuel');
-Insert into vendedor (nome) values ('Clara');
-Insert into vendedor (nome) values ('Zoe');
+Insert into vendedor (nome, email) values ('Julio', 'jpereira@gmail.com');
+Insert into vendedor (nome, email) values ('Manuel', 'manuel_87@hotmail.com');
+Insert into vendedor (nome, email) values ('Clara','clara_pimentel@outlook.com');
+Insert into vendedor (nome, email) values ('Zoe', 'zoemartinez@yahoo.com');
 
 -- Inserção de anuncios
 Insert into anuncio (vendedor_id, produto_id, preco, volume, temperatura_maxima, temperatura_minima, tipo) values (1, 1, 5, 0.0001, 25, 10, 0);
