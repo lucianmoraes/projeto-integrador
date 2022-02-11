@@ -3,6 +3,7 @@ package com.example.demo.utils;
 import com.example.demo.entity.*;
 import com.example.demo.enums.Tipos;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -12,11 +13,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Getter
+@Setter
 public class MockEstoque {
 
     private List<Estoque> listaEstoqueFiltrada = new ArrayList<>();
     private LocalDate dataValidade;
     private long numeroDias;
+    private List<Estoque> listaEstoque = new ArrayList<>();
 
     public MockEstoque() {
 
@@ -158,7 +161,7 @@ public class MockEstoque {
                         .dataProducao(LocalDateTime.of(2022, Month.FEBRUARY, 23,11,40))
                         .build()
         );
-
+        this.setListaEstoque(listaEstoque);
         List<Representante> listaRepresentante = new ArrayList<>();
         listaRepresentante.add(
                 Representante.builder()
@@ -191,5 +194,15 @@ public class MockEstoque {
                 listaEstoqueFiltrada.add(e);
             }
         }
+    }
+
+    public List<Estoque> getEstoqueByDataValidade(LocalDate dataValidade) {
+        List<Estoque> listaFiltrada = new ArrayList<>();
+        for (Estoque e : this.getListaEstoque()) {
+            if(e.getDataValidade().isBefore(dataValidade) || e.getDataValidade().equals(dataValidade)){
+                listaFiltrada.add(e);
+            }
+        }
+        return listaFiltrada;
     }
 }
